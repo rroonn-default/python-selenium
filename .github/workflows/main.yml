@@ -24,5 +24,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run tests with pytest
-      run: pytest tests/test.py
+    - name: Run tests and generate HTML report
+      run: |
+        pytest tests/test.py --html=report.html --self-contained-html
+
+    - name: Upload HTML Test Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: selenium-test-report
+        path: report.html
