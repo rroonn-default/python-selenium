@@ -26,4 +26,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest  # or your preferred test runner
+        pytest tests/test.py
